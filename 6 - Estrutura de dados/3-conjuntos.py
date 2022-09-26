@@ -39,13 +39,81 @@ for indice, carro in enumerate(carros):
 
 # METODOS SET
 
-# {}.union
+# {}.union - une os dois conjuntos, mas elimina a duplicidade
 
-conjunto_a = set([1, 2])
-conjunto_b = set([3, 4])
+conjunto_a = set([1, 2, 3])
+conjunto_b = set([2, 3, 4])
 
-conjunto = conjunto_a.union(conjunto_b)
+conjunto = conjunto_a.union(conjunto_b)  # {1, 2, 3, 4}
+
+# {}.intersection - une o conjunto somente com valores que existem nos 2
 
 print(conjunto)
 
-# {}.
+conjunto2 = conjunto_a.intersection(conjunto_b)  # {2, 3}
+
+print(conjunto2)
+
+# {}.difference - pega a diferença de um conjunto comparada com outro
+
+conjuntoA = conjunto_a.difference(conjunto_b)  # {1}
+conjuntoB = conjunto_b.difference(conjunto_a)  # {4}
+
+# {}.symmetric_difference - pega a diferença que existe nos dois grupos
+
+conjuntosDif = conjunto_a.symmetric_difference(conjunto_b)  # {1, 4}
+
+# {}.issubset - Verifica se todos os valores de um conjunto existe em um conjunto passado como parametro
+
+conjunto_c = set([4, 1, 2, 5, 6, 3])
+
+conjunto_a.issubset(conjunto_c)  # True
+conjunto_c.issubset(conjunto_a)  # False
+
+# {}.issuperset - verifica se os valores do conjunto passado como parametro existem dentro do conjunto solicitado para verificação
+
+conjunto_a.issubset(conjunto_c)  # False
+conjunto_c.issubset(conjunto_a)  # True
+
+# {}.isdisjoint - verifica nao existem valores em comum entre os conjuntos.
+
+conjunto_a.isdisjoint(conjunto_b) # False
+
+# {}.add - se o elemento nao existe, ele é adicionado ao conjunto
+
+sorteio = set([1,23])
+
+sorteio.add(25) # {1, 23, 25}
+
+# {}.clear - limpa todos os itens do conjunto
+
+sorteio.clear() # {}
+
+# {}.copy - copia o conjunto.
+
+sorteio.copy()
+
+# {}.discard() - elimina um valor passado por parametro do conjunto
+
+sorteio.add([1,2,3,4,5,6])
+sorteio.discard(1) # {2,3,4,5,6}
+
+# {}.pop - elimina o primeiro valor do conjunto
+
+sorteio.pop() #{3,4,5,6}
+sorteio.pop() #{4,5,6}
+
+# {}.remove - elimina o valor passado como parametro, mas ele faz a verificação de erro caso o valor nao exista
+
+sorteio.remove(4) # {5,6}
+sorteio.remove(10) # erro
+
+# len() - conta quantos elementos existem no conjunto
+
+len(sorteio) # 2
+
+# in verifica se existe um valor dentro do conjunto
+
+1 in sorteio # False
+5 in sorteio # True
+
